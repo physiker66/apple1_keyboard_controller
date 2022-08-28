@@ -54,7 +54,7 @@ The Apple 1 keyboard has this pinout:
 13 B6
 15 B7     16  GND
 
-The idea is to use an Arduino Nano and some shift registers (there are more input and output pins needed than a nano provides...). The 74..164 serial in/parallel out register provides the necesseray 8 Y[0..7] signals. Two 74..166 parallel in/serial out registers register the output of both X[0..7] lines as well as special lines SHIFT,Control and Caplock.
+The idea is to use an Arduino Nano and some shift registers (there are more input and output pins needed than a nano provides...). The 74..164 serial in/parallel out register provides the necessary 8 Y[0..7] signals. Two 74..166 parallel in/serial out registers register the output of both X[0..7] lines as well as special lines SHIFT, Control and Caps-lock.
 The Arduino checks all lines, and reads the results. If a normal key is pressed the output lines connected to B1..B7 are set, and Strobe is is set HIGH for a short amount of time.
 The Arduino ensures also that on startup both reset and clear screen signals are sent to the Apple 1. That computer needs both signals in correct order upon power up and reset to work. 
 The keyboard RESET line (active if both CONTROL AND RESET are pressed) is connected to the RESET input of the Arduino. A reset to the Arduino will trigger a standard reset cycle including a "reset/clearscreen" signal to the Apple 1.
@@ -67,8 +67,8 @@ Finally the Arduino notices when the RIGHT APPLE key is held down. Any keys pres
   BAS   load the Apple 1 Basic program to address E000
 
 Some notes on program loading. The programs are only loaded into memory. You need to go to the address and press "R+ENTER" to run them. 
-The program CHK is directly entered via the WOzMan. That only works for small programs though. It seems there are problems with WozMon to do the same for longer codes. To circumvent this issue I wrote a loader program, that converts ASCII nibbles drectly into byes in memory WITHOUT displaying them on the screen. 
-Finally - I do not own the license to distribute either Apple 1 Basic nor Uncle Bernies codebreaker. That's why they are not part of the Arduino code. Even if both are loaded only about half of the Arduino flash memory is used.
+The program CHK is directly entered via the WozMon. That only works for small programs though. It seems there are problems with WozMon to do the same for longer codes. To circumvent this issue I wrote a loader program, that converts ASCII nibbles directly into byes in memory WITHOUT displaying them on the screen. 
+Finally, I do not own the license to distribute either Apple 1 Basic nor Uncle Bernie's codebreaker. That's why they are not part of the Arduino code. Even if both are loaded only about half of the Arduino flash memory is used.
 
 Files:
   Pictures of Aple 1 Clone and keyboard converter
@@ -77,7 +77,7 @@ Files:
     IMG_2474.JPG
 
   small helper programs running on the Apple 1
-    checksum_v01.s    create simple checksums of blocks
+    checksum_v01.s    create simple check-sums of blocks
     loader_v03.s      loader program to circumvent WozMon
 
   schematic_v02.pdf   Schematic
